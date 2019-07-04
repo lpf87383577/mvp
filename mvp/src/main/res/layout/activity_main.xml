@@ -7,10 +7,46 @@
     android:orientation="vertical"
     tools:context="com.shinhoandroid.mvp.view.MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="400pt"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/v1"
+            android:layout_width="300pt"
+            android:layout_height="300pt"
+            android:background="#00ff00"
+            />
+
+        <View
+            android:id="@+id/v2"
+            android:layout_width="200pt"
+            android:layout_height="300pt"
+            android:background="#00ffff"
+            />
+
+        <View
+            android:id="@+id/v3"
+            android:layout_width="250pt"
+            android:layout_height="300pt"
+            android:background="#000000"
+            />
+
+        <View
+            android:id="@+id/v4"
+            android:layout_width="400pt"
+            android:layout_height="300pt"
+            android:background="#00ff00"
+            />
+
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/tv_response"
         android:layout_width="match_parent"
-        android:layout_height="400dp"/>
+        android:layout_height="200pt"/>
 
     <Button
         android:layout_width="match_parent"

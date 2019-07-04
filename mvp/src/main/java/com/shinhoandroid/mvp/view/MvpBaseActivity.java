@@ -1,6 +1,7 @@
 package com.shinhoandroid.mvp.view;
 
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
@@ -12,6 +13,7 @@ import android.widget.FrameLayout;
 import com.shinhoandroid.mvp.R;
 import com.shinhoandroid.mvp.model.bean.ApiEvent;
 import com.shinhoandroid.mvp.model.subscriber.SubscriberNet;
+import com.shinhoandroid.mvp.model.utils.AdaptScreenUtils;
 import com.shinhoandroid.mvp.model.utils.L;
 import com.shinhoandroid.mvp.model.utils.ToastUtils;
 import com.shinhoandroid.mvp.presenter.MvpBasePresenter;
@@ -190,5 +192,10 @@ public abstract class MvpBaseActivity<V extends MvpBaseView, P extends MvpBasePr
         }
     }
 
-
+    //适配布局
+    @Override
+    public Resources getResources() {
+        //xml 文件中使用pt为宽高单位
+        return AdaptScreenUtils.adaptWidth(super.getResources(), 1050);
+    }
 }
