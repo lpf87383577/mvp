@@ -27,7 +27,6 @@ public class ObservableHandler {
 
     /**
      * 对网络请求返回的obervable统一处理
-     *
      * @param observable
      * @param <T>
      * @return

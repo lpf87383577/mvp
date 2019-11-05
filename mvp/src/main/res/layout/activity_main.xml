@@ -54,4 +54,23 @@
         android:text="请求网络"
         android:id="@+id/bt"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="检查更新非主动"
+        android:id="@+id/bt2"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="检查更新主动"
+        android:id="@+id/bt3"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="动态权限"
+        android:id="@+id/bt4"/>
+
+
 </LinearLayout>

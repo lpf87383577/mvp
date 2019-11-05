@@ -14,4 +14,9 @@ public class YmUrls {
 
     public static final String GET_APPPAGES_LAYOUT_URL = "/v1/apppages/layout";
 
+    /**
+     * 获取app应用版本
+     */
+    public static final String GET_UPGRADE_INFOR = "/v1" + "/defaults/upgrade";
+
 }

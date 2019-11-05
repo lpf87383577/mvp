@@ -5,6 +5,8 @@ import com.shinhoandroid.mvp.model.ShinhoConfig;
 import com.shinhoandroid.mvp.model.YmUrls;
 import com.shinhoandroid.mvp.model.converter.CustomGsonConverterFactory;
 import com.shinhoandroid.mvp.model.intercept.TokenIntercept;
+import com.shinhoandroid.mvp.model.update.DownloadProgressHandler;
+import com.shinhoandroid.mvp.model.update.ProgressHelper;
 
 import java.util.concurrent.TimeUnit;
 
@@ -12,6 +14,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * @author Liupengfei
@@ -62,5 +65,34 @@ public class RetrofitUtils {
 
         return sRetrofit;
     }
+
+    /**
+     * 下载请求可监听进度的retrofit
+     *
+     * @param handler
+     * @return
+     */
+    public static Retrofit getDownloadProgressRetrofit(DownloadProgressHandler handler) {
+        Retrofit.Builder retrofitBuilder = new Retrofit.Builder()
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(YmUrls.GLOABL_URL);
+        OkHttpClient.Builder builder = ProgressHelper.addProgress(null);
+
+        if (isDebug) {
+            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+
+            loggingInterceptor.setLevel(logLevel);
+
+            builder.addInterceptor(loggingInterceptor);
+        }
+
+        ProgressHelper.setProgressHandler(handler);
+
+        return retrofitBuilder
+                .client(builder.build())
+                .build();
+    }
+
 
 }

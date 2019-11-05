@@ -12,10 +12,6 @@ public class MvpBasePresenter<V extends MvpBaseView> {
     public V view;
 
     public V getView() {
-
-//        if (this.view == null) {
-//            throw new NullPointerException("view为空");
-//        }
         return view;
     }
 
